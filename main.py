@@ -37,7 +37,7 @@ def map():
     # Add a markers into the map, with a popup and a color
     for lt, ln, nam, addr, phon in zip(lat, lon, name, address, phone):
         # Add the html
-        iframe = folium.IFrame(html=html % (nam, addr,phon), width=200, height=140)
+        iframe = folium.IFrame(html=html % (nam, addr,phon), width=235, height=135)
         # Put the icon markers
         # fg.add_child(folium.Marker(location=[lt, ln], popup=folium.Popup(iframe), icon=folium.Icon(color="blue")))
         # Put the icon markers with circle markers
@@ -46,7 +46,7 @@ def map():
     # Create a routes in the same map
     bicycle = folium.FeatureGroup(name="Ciclorutas")
     # Adding bycicle router Map Layer
-    bicycle.add_child(folium.GeoJson(data=open("RedBiciusuario.geojson","r",encoding="utf-8-sig").read()))
+    bicycle.add_child(folium.GeoJson(data=open("RedBiciusuario.geojson","r",encoding="utf-8-sig").read(), style_function=lambda x: {'color': '#666464'}))
 
     # Create a police group in the same map
     police = folium.FeatureGroup(name="CAI's")
